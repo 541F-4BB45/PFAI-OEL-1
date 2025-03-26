@@ -1,0 +1,39 @@
+---
+title: "Task_1"
+author: "Mohsin"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading the dataset into a CSV file
+```{r}
+dataset = read.csv("dataset_1.csv", header=TRUE, stringsAsFactors=FALSE)
+```
+
+### Display the first 5 rows (head()).
+```{r}
+head(dataset, 5)
+```
+
+
+### Get basic summary statistics (summary()).
+```{r}
+summary(dataset)
+```
+
+
+### Identify missing values (colSums(is.na(data))).
+```{r}
+missing_values <- colSums(is.na(dataset))
+missing_values
+```
+
+
+### Save the cleaned dataset
+```{r}
+write.csv(dataset, file="cleaned_happiness.csv", row.names=FALSE)
+```
